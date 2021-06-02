@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSmol</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Kanit';
+        }
+    </style>
+</head>
+<body>
+    <script src="/javascripts/JSmol.min.js"></script>
+    <div class="relative w-screen h-screen flex flex-col md:flex-row justify-center items-center">
+        <div class="absolute top-0 left-0 w-full bg-gray-800 text-white text-lg px-6 py-4 shadow">BoomChanotai</div>
+        <div class="my-4 mx-8 shadow-lg">
+            <script>
+                let size = 400;
+                (window.innerWidth < 600) ? size = window.innerWidth -100 : size = 400
+        
+                var Info = {
+                    color: "#ffffff",
+                    height: size,
+                    width: size,
+                    j2sPath: "/javascripts/j2s",
+                    use: "HTML5",
+                    script: "set antialiasDisplay;"
+                };
+        
+                jmolApplet = Jmol.getApplet("jmolApplet", Info);
+            </script>
+        </div>
+        <div class="my-4 mx-8">
+            <div class="font-bold text-2xl mb-4">
+                ตั้งค่าการแสดงผล
+            </div>
+            <div>
+                <div class="my-2">
+                    <input type="checkbox" name="controls_rotation" id="controls_rotation">
+                    <label for="controls_rotation" class="label-menu">หมุนโมเลกุล</label>
+                </div>
+                <div class="my-2">
+                    <input type="checkbox" name="controls_displayhydrogen" id="controls_displayhydrogen">
+                    <label for="controls_displayhydrogen" class="label-menu">แสดงอะตอมไฮโดรเจน</label>
+                </div>
+                <div class="my-2 flex flex-row">
+                    <div class="mr-4">ขนาดอะตอม</div>
+                    <input type="range" name="controls_atomsize" id="controls_atomsize" min="0" max="99">
+                    <div class="ml-4 cursor-pointer" id="controls_reset_atomsize">
+                        reset
+                    </div>
+                </div>
+                <div class="my-2 flex flex-row">
+                    <div class="mr-4">ขนาดพันธะ</div>
+                    <input type="range" name="controls_bondsize" id="controls_bondsize" min="0" max="99">
+                    <div class="ml-4 cursor-pointer" id="controls_reset_bondsize">
+                        reset
+                    </div>
+                </div>
+                <div class="my-2">
+                    <div>สีพื้นหลัง</div>
+                    <div>
+                        <select name="controls_bgcolor" id="controls_bgcolor" class="bg-gray-300 w-full rounded-lg px-2 focus:outline-none">
+                            <option value="lightgrey">สีเทาอ่อน</option>
+                            <option value="black">สีดำ</option>
+                            <option value="white">สีขาว</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/javascripts/scripts.js"></script>
+</body>
+</html>
